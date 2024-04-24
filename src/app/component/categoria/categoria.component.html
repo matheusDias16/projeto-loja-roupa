@@ -1,0 +1,12 @@
+<h1>
+    {{ categoria.categoria }}
+  </h1>
+
+  <div class="produtos">
+  
+    <div class="prod" *ngFor="let prod of produto" routerLink="/interna/{{prod.id}}" >
+        <div class="imagem"><img [src]="(prod.imagem[0].caminho)" alt=""> </div>
+      <h3>{{ prod.produto }}</h3>
+    </div>
+  
+  </div>

@@ -1,0 +1,94 @@
+<div class="camisa" *ngIf="produto.id > 0">
+<div class="foto">
+    
+ <img [src]="caminhoImagemDestaque" alt="" > 
+    
+    <div class="menor" *ngFor="let image of produto.imagem" >
+        <img [src]="(image.caminho)" alt="" (click)="mudaImagemDestaque( image.caminho )" [ngClass]="( (image.caminho == caminhoImagemDestaque) ? 'ativo' : '' )">
+    </div> 
+    
+    
+</div>
+ 
+
+<div class="item">
+    <h4>{{produto.produto}}</h4>
+
+    <div class="linha" >
+        <p *ngFor="let estoque of produto.estoque" class="quadrado" [ngClass]="(estoque.quantidade > 0 ) ? '' : 'indisponivel' "
+            (click)="mudaTamanho(estoque.tamanho)">
+        
+            {{estoque.tamanho}}
+           <span>{{estoque.quantidade}}</span>
+        </p>
+        
+    </div>
+    <div class="preco">
+        <h3>R${{produto.preco}}</h3>
+        <h5>{{produto.parcelas[produto.parcelas.length - 1]}}x R${{ (produto.preco /  produto.parcelas[produto.parcelas.length - 1]).toFixed(2) }}</h5>
+        
+    
+          <button  [disabled]="tamanhoSelecionado == ''" (click)="adicionarAoCarrinho()" > <!-- USUARIO  -->
+               
+            <ng-container *ngIf="tamanhoSelecionado != ''">
+                Adicionar ao carrinho o tamanho {{ tamanhoSelecionado }}
+              </ng-container>
+              <ng-container *ngIf="tamanhoSelecionado == ''">
+                Informe o tamanho que deseja
+              </ng-container>
+        </button>
+      <!-- routerLink="/carrinho/{{user.carrinho}}"> -->
+
+    </div>
+  
+       
+</div>
+</div>
+<ng-container *ngFor="let user of usuario">
+  <button class="car" routerLink="/carrinho"> 
+    Seu carrinho
+  </button>
+</ng-container>  
+
+<div class="quadro">
+<h3>Categoria:{{ findCategoria(produto.categoria)}} </h3>
+<h3>Coleção:{{findColecao(produto.colecao)}}</h3>
+<h3>Gênero:{{produto.genero}}</h3>
+<h3>Descrição do produto:{{produto.descricao}}</h3>
+</div>
+<div >
+<h1>Avaliações</h1>
+<div class="aval" *ngFor="let avaliacoes of produto.avaliacoes">
+   <h3 class="star" >
+    <ng-container  *ngFor="let estrela of arrayNumeros">
+   <p class="color" [ngClass]="( (avaliacoes.estrelas <= estrela) ? 'ativo' : '')" ></p> 
+</ng-container>
+</h3>
+   <h3>  Usuario:{{findId(avaliacoes.idUsuario)}}</h3>
+   <h3> Comentario: {{avaliacoes.comentario}}</h3>
+</div>
+<!-- OU 
+<div class="avaliacoes">
+  <h3>
+    Avaliações
+  </h3>
+  <div class="avaliacao" *ngFor="let avaliacao of roupa.avaliacoes">
+    <p>
+      <ng-container *ngFor="let numero of arrayNumeros">
+
+        <ng-container *ngIf="numero < avaliacao.estrelas">
+          <img src="https://cdn-icons-png.flaticon.com/512/541/541415.png" />
+        </ng-container>
+        <ng-container *ngIf="numero >= avaliacao.estrelas">
+          <img src="https://cdn-icons-png.flaticon.com/512/149/149220.png" />
+        </ng-container>
+
+      </ng-container>
+    </p>
+    <h4>
+      {{ avaliacao.comentario }}
+    </h4>
+  </div>
+</div>
+-->
+</div>

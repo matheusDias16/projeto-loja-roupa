@@ -1,0 +1,24 @@
+.produtos{
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+  display: flex;
+       
+  
+    .prod{
+    width: 30%;
+  
+      .imagem{
+
+      img{
+        width: 100%;
+        height: auto;
+
+      }
+    
+      }
+      h3{
+        text-align: center;
+      }
+    }
+  }

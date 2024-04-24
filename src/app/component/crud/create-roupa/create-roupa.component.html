@@ -1,0 +1,110 @@
+<h1>
+    Criar roupa
+  </h1>
+  
+  <form [formGroup]="formularioRoupa">
+  
+    <div>
+      <label>
+        Nome do produto
+        <input type="text" formControlName="produto">
+      </label>
+    </div>
+  
+    <div>
+      <label>
+        Descrição
+        <input type="text" formControlName="descricao">
+      </label>
+    </div>
+    <div>
+      <label>
+        Preço
+        <input type="number" formControlName="preco">
+      </label>
+    </div>
+    <div>
+      <label>
+        Parcelas
+        <input type="number"  formControlName="parcelas">
+      </label>
+    </div>
+    
+<div>
+  <label>
+    Gênero
+    <input type="text"  formControlName="genero">
+  </label>
+</div>
+<div>
+  <label>
+    Categoria 
+    <input type="number"  formControlName="categoria">
+  </label>
+</div>
+<div>
+  <label>
+    Coleção
+    <input type="text"  formControlName="colecao">
+  </label>
+</div>
+
+
+    <div>
+      
+      <h3>
+        Estoque
+      </h3>
+      <ng-container *ngFor="let est of camposEstoque">
+        <label>
+          Tamanho
+          <input type="text" [(ngModel)]="est.tamanho"  [ngModelOptions]="{standalone: true}"  >
+        </label>
+        <label>
+          Quantidade
+          <input type="number" [(ngModel)]="est.quantidade"  [ngModelOptions]="{standalone: true}"  >
+        </label>
+        <br>
+      </ng-container>
+      <button type="button" (click)="removeEstoque()" [disabled]="camposEstoque.length == 1">
+        Remover estoque
+      </button>
+      <button type="button" (click)="addEstoque()">
+        Adicionar estoque
+      </button>
+    </div>
+    <button type="button" (click)="validateEstoque()">
+      Validar
+    </button>
+    <div>
+      <h3>
+        Imagem
+      </h3>
+      <ng-container *ngFor="let img of campoImagem">
+        <label>
+          Caminho
+          <input type="text" formControlName="caminho"> <!-- [(ngModel)]="img.caminho"-->
+        </label>
+        <label>
+          Destaque
+          <input type="text"  formControlName="destaque"> <!--[(ngModel)]="img.destaque"-->
+        </label> 
+        <br>
+      </ng-container>
+    </div>
+   
+  </form>
+  
+  <hr>
+  <button type="button" (click)="criaProduto()">
+    Finalizar
+  </button>
+  <hr>
+  
+  
+  <div>
+    <p *ngFor="let est of camposEstoque">
+      Tamanho - {{ est.tamanho }}
+      Quantidade - {{ est.quantidade }}
+    </p>
+  </div>

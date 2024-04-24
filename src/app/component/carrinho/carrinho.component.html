@@ -1,0 +1,46 @@
+<h1>Seu carrinho</h1>
+
+<div class="produtos">
+
+  <div class="item" *ngFor="let item of carrinho">
+    <img [src]="findProduto(item.produto).imagem[0].caminho" />
+    <div class="infos">
+      <h5>
+        {{ findProduto(item.produto).produto }}
+      </h5>
+      <span>
+        Tamanho: {{ item.tamanho }}
+      </span>
+    </div>
+    <div class="acoes">
+      <h3>
+        R$ {{ (findProduto(item.produto).preco * item.quantidade).toFixed(2) }}
+      </h3>
+      <div class="btnsMaisMenos">
+        <button type="button" class="btnMenos" (click)="mudaQuantidade(item, true)">
+          -
+        </button>
+        <span>
+          {{ item.quantidade }}
+        </span>
+        <button type="button" class="btnMais" (click)="mudaQuantidade(item, false)">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h3>
+  Valor total: R$ {{ precoTotal().toFixed(2) }}
+</h3>
+
+<div class="btn" >
+    <button class="vlt" routerLink="">
+        Continuar comprando
+    </button>
+<button class="fin">
+    Finalizar compra
+</button>
+</div>

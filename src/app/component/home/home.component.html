@@ -1,0 +1,47 @@
+<div>
+
+    <div class="retangulo">
+        <img src="../assets/Rectangle 2.png" alt="">
+    </div>
+    <h1>Explore nossas categorias</h1>
+    <div class="categorias" *ngFor="let cat of categoria">
+        <h4 routerLink="/categoria/{{ cat.id }}">
+            <img src="{{cat.imagem}}" alt=""> <br> {{cat.categoria}}
+        </h4>
+
+    </div>
+    <h1>Nossos produtos em destaque</h1>
+    <div class="produtosDestaque"> <!--*ngFor="let dest of destaque"-->
+        <ng-container *ngFor="let prod of roupa"> 
+        <ng-container *ngIf="destaque.home.produtosDestaque.includes(prod.id)"> 
+
+                <div class="alinhar">
+                    <div class="camisa">
+
+                        <div class="foto"><img [src]="(prod.imagem[0].caminho)" alt="" > </div> <br>
+                        <div class="item">
+                            <h4>{{prod.produto}}</h4>
+                            <div class="linha" >
+                                <p *ngFor="let estoque of prod.estoque" class="quadrado" [ngClass]="(estoque.quantidade > 0 ) ? '' : 'indisponivel' ">
+                                   {{estoque.tamanho}}
+                                </p>
+                                
+                            </div>
+                            <div class="preco">
+                                <h3>R${{prod.preco}}</h3>
+                                <h5>{{prod.parcelas[prod.parcelas.length - 1]}}x R${{ (prod.preco /  prod.parcelas[prod.parcelas.length - 1]).toFixed(2) }}</h5>
+                                <button routerLink="/interna/{{prod.id}}">
+                                    Comprar
+                                </button>
+                            </div>
+
+
+
+                        </div>
+
+                    
+                </div>
+            </div>
+            </ng-container>
+        </ng-container>
+    </div>

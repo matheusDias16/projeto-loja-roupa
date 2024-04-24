@@ -1,0 +1,52 @@
+<h1>
+    Roupas
+  </h1>
+  
+  <hr style="margin: 10px;">
+  
+  <table>
+    <thead>
+      <tr>
+        <td>
+          ID
+        </td>
+        <td>
+          Roupa
+        </td>
+        <td>
+          Preço
+        </td>
+        <td>
+          Categoria
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let roupa of roupas">
+        <td>
+          {{ roupa.id }}
+        </td>
+        <td>
+          {{ roupa.produto }}
+        </td>
+        <td>
+          R$ {{ roupa.preco }}
+        </td>
+        <td>
+          {{ getCategValue(roupa.categoria) }}
+        </td>
+        <td>
+          <button type="button">
+            EDITAR
+          </button>
+        </td>
+        <td>
+          <button type="button">
+            DELETAR
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

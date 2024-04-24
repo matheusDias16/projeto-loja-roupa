@@ -1,0 +1,111 @@
+h1{
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .produtos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+  
+    .item{
+      display: flex;
+      flex-direction: row;
+      border: 1px solid grey;
+      border-radius: 20px;
+      padding: 20px;
+      width: calc(100% - 40px);
+      justify-content: space-between;
+  
+      img{
+        width: 100px;
+        height: auto;
+      }
+      .infos{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+  
+        h5{
+          text-align: left;
+          margin: 0;
+        }
+        span{
+          text-align: left;
+        }
+      }
+      .acoes{
+        display: flex;
+        flex-direction: column;
+  
+        h3{
+          font-weight: bolder;
+        }
+        .btnsMaisMenos{
+          display: flex;
+          flex-direction: row;
+        
+          button{
+            border: 1px solid gray;
+            cursor: pointer;
+            width: 20px;
+          }
+          span{
+            border: 1px solid gray;
+            width: 20px;
+            text-align: center;
+            border-left: none;
+            border-right: none;
+          }
+          .btnMenos{
+            background-color: red;
+            color: white;
+            border-right: none;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+          }
+          .btnMais{
+            background-color: greenyellow;
+            color: black;
+            border-left: none;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+          }
+        }
+      }
+    }
+  }
+
+.btn{
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    .vlt{
+        margin-left: 50px;
+      
+    }
+    .fin{
+margin-left: 50%;
+    
+
+}
+button{
+    background-color: #D22730;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    width: 400px;
+    padding: 18px;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 700;
+    
+}
+
+
+}
